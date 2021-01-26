@@ -1,0 +1,77 @@
+.lineup {
+    background-color: $rosa;
+    padding: $separacion 0;
+
+    h3, p {
+        text-align: center;
+        color: $blanco;
+    }
+    .dia {
+        text-transform: uppercase;
+        margin: $separacion 0
+    }
+}
+
+.escenarios-contenedor {
+    @include tablet {
+        @include grid(2, $separacion)
+    }
+    .escenario {
+        padding-top: $separacion / 2;
+    }
+
+    .nombre-escenario {
+        color: $negro;
+        font-size: 2rem;
+        font-weight: $delgada;
+
+        // los seudoelementos no se pueden seleccionar
+        &:after {
+            content: ''; // sin el content no funciona, tiene ajuro que tener un conted
+            width: 20rem;
+            height: 10rem;
+            display: block; // para que funcione este seudoelemento
+            margin: 2rem auto 0 auto;
+            background-size: 15rem; // hacer mas pequeña la imagen
+            background-repeat: no-repeat;
+            background-position: center; // alinear al centro
+        }
+    }
+}
+
+.edm .nombre-escenario {
+    &:after {
+        background-image: url(../img/icono_edm.png);
+    }
+}
+
+.rock .nombre-escenario {
+    &:after {
+        background-image: url(../img/icono_rock.png);
+    }
+}
+
+.calendario {
+    padding: 0;
+    list-style: none; // quitar viñetas al li
+
+    li {
+        padding: $separacion / 2;
+        font-weight: $bold;
+
+        span {
+            font-weight: $regular;
+        }
+    }
+}
+
+// para colocar color de fondo en los Li de de numeros (1 ,  3 , 5 .....) un interlineado de color
+// se usa el nth.child(odd)
+// el darken es para apicar intencidad a un color, volvero mas oscuro
+// y el ligthen es para aplicarle al color mas claridad
+.bg-verde .calendario li:nth-child(odd) {
+    background-color: darken($verde, 10); // el segundo valor es la intensidad, para eso sirve el darken (funcion excusiva de sass)
+}
+.bg-amarillo .calendario li:nth-child(odd) {
+    background-color: darken($amarillo, 10); // el segundo valor es la intensidad, para eso sirve el darken (funcion excusiva de sass)
+}

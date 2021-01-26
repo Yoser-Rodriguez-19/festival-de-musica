@@ -1,0 +1,50 @@
+.header{
+    background-color: $verde;
+
+    .contenido-header {
+        padding: $separacion / 2 0;
+
+        @include tablet { // el include es para incluir el mixin
+            display: flex;
+            justify-content: space-between; // separarlos hacia los extremos
+            align-items: center; // centrarlo verticalmente
+        }
+    }
+    h1 {
+        color: $blanco;
+        margin-bottom: 1rem;
+        text-align: center; // para centrar el texto h1
+        @include tablet{
+            margin-bottom: 0;
+        }
+    }
+
+    &.fijo {
+        position: fixed;
+        width: 100%;
+        box-shadow: 0 .3rem .4rem  #444444; //para darle un poco de sombra a la barra cuando esta en esta clase
+    }
+}
+
+.navegacion-principal {
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;  // centrar la navegacion
+    align-items: center;
+    margin-top: 2rem;
+
+    @include tablet {
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    a {
+       color: $blanco; 
+       font-size: 2rem;
+       &:hover{
+           color: $amarillo;
+       }
+    }
+}
